@@ -9,7 +9,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "test": "node --test"
+    "format": "prettier --write ."
   },
   "engines": {
     "node": ">=22"
