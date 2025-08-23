@@ -3,6 +3,7 @@
     "module": "nodenext",
     "target": "esnext",
     "outDir": "./dist",
+    "declaration": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitReturns": true,
