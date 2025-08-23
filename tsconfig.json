@@ -3,6 +3,7 @@
     "module": "nodenext",
     "target": "esnext",
     "outDir": "./dist",
+    "declaration": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "noImplicitReturns": true,
@@ -17,6 +18,5 @@
     "noUncheckedSideEffectImports": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }
