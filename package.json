@@ -1,0 +1,29 @@
+{
+  "name": "trading-212-ts-client",
+  "version": "1.0.0",
+  "description": "A TypeScript client for the Trading212 API",
+  "author": "Gabe Olesen",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "keywords": [
+    "trading212",
+    "trading212 client",
+    "trading212 typescript"
+  ]
+}
