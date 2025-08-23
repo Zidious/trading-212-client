@@ -1,6 +1,6 @@
 # trading-212-client
 
-A TypeScript client for the Trading212 API, designed to provide seamless access to Trading212’s endpoints for account data, equity orders, historical items, instruments metadata, personal portfolio, pies, and more.
+A TypeScript client for the [Trading212 API](https://t212public-api-docs.redoc.ly/), designed to provide seamless access to Trading212’s endpoints for account data, equity orders, historical items, instruments metadata, personal portfolio, pies, and more.
 
 > [!IMPORTANT]
 > This library is not officially affiliated with Trading212.
