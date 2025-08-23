@@ -8,7 +8,7 @@ A TypeScript client for the Trading212 API, designed to provide seamless access 
 ## Features
 
 - **TypeScript-first:** Strongly typed models and responses.
-- **Modular API:** Access different API sections via the `v0` namespace.
+- **Modular API:** Access different API sections via API versioning e.g., `v0`.
 - **Easy authentication:** Pass your API key and environment (`demo` or `live`).
 - **Convenient methods:** For common Trading212 operations (pies, orders, account data, etc.).
 
@@ -50,7 +50,7 @@ await client.v0.pies.delete('pie-id')
 const client = new Trading212({ apiKey, environment })
 ```
 
-### Available Namespaces
+### Available API Endpoints
 
 - `client.v0.accountData`
 - `client.v0.equityOrders`
@@ -59,7 +59,7 @@ const client = new Trading212({ apiKey, environment })
 - `client.v0.personalPortfolio`
 - `client.v0.pies`
 
-Each namespace provides methods for interacting with the corresponding Trading212 API endpoints.
+Each endpoint provides methods for interacting with the corresponding Trading212 API endpoints.
 
 ### Example: Pies
 
