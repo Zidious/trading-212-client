@@ -1,3 +1,5 @@
+name: Publish
+
 on:
   push:
     branches:
@@ -5,31 +7,8 @@ on:
       - develop
 
 jobs:
-  prod-release:
+  publish:
     runs-on: ubuntu-latest
-    if: github.ref_name == 'master'
-    steps:
-      - uses: googleapis/release-please-action@v4
-        id: release
-        with:
-          release-type: node
-      - uses: actions/checkout@v4
-        if: ${{ steps.release.outputs.release_created }}
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          registry-url: 'https://registry.npmjs.org/'
-        if: ${{ steps.release.outputs.release_created }}
-      - run: npm ci
-        if: ${{ steps.release.outputs.release_created }}
-      - run: npm publish --tag latest
-        if: ${{ steps.release.outputs.release_created }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  dev-release:
-    runs-on: ubuntu-latest
-    if: github.ref_name == 'develop'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -38,10 +17,14 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
 
       - run: npm ci
-      - run: npm version prerelease --preid=canary-$(git rev-parse --short HEAD) --no-git-tag-version
-      - run: npm run build
+      - name: Tag canary version
+        if: github.ref_name == 'develop'
+        run: npm version prerelease --preid=canary-$(git rev-parse --short HEAD) --no-git-tag-version
+
+      - name: build
+        run: npm run build
       - uses: JS-DevTools/npm-publish@v3
         with:
           access: public
           token: ${{ secrets.NPM_TOKEN }}
-          tag: next
+          tag: ${{ github.ref_name == 'master' && 'latest' || github.ref_name == 'develop' && 'next' }}
